@@ -1,14 +1,34 @@
-# 🔋 batbar
+<div align="center">
 
-> A blazing-fast, zero-dependency battery status visualizer for Linux — reads `sysfs` directly, no `upower`, no `acpi`, no subprocesses.
+```text
+██████╗  █████╗ ████████╗██████╗  █████╗ ██████╗ 
+██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗
+██████╔╝███████║   ██║   ██████╔╝███████║██████╔╝
+██╔══██╗██╔══██║   ██║   ██╔══██╗██╔══██║██╔══██╗
+██████╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+```
 
-[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](#-license)
-[![Rust](https://img.shields.io/badge/rust-1.85%2B-blue.svg)](https://www.rust-lang.org)
-[![Platform](https://img.shields.io/badge/platform-linux-lightgrey.svg)](#-compatibility)
-[![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](Cargo.toml)
-[![Speed](https://img.shields.io/badge/speed-~1.2ms-brightgreen.svg)](#-benchmarks)
+# 🔋 BATBAR
 
-`batbar` is a lightweight alternative to GUI battery applets and shell-heavy status scripts. It enumerates `/sys/class/power_supply`, reads the kernel's battery attributes, and renders a clean, color-coded table with a charge bar, time estimate, battery health, and cycle count.
+**A blazing-fast, zero-dependency battery status visualizer for Linux — reads `sysfs` directly, no `upower`, no `acpi`, no subprocesses.**
+
+[![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
+[![Linux](https://img.shields.io/badge/linux-%23FCC624.svg?style=for-the-badge&logo=linux&logoColor=black)](https://www.kernel.org/)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg?style=for-the-badge)](Cargo.toml)
+[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?style=for-the-badge)](#-license)
+
+[Features](#-features) •
+[Install](#-install) •
+[Usage](#-usage) •
+[JSON](#-json-output) •
+[Live Mode](#-live-mode) •
+[Benchmarks](#-benchmarks) •
+[Troubleshooting](#-troubleshooting)
+
+</div>
+
+---
 
 ```
 🔋 BATTERY STATUS (Direct sysfs)
@@ -20,28 +40,13 @@ BAT0    Charging     [███████████░░░░░░░░�
 AC: connected
 ```
 
----
-
-## Table of Contents
-
-- [Features](#-features)
-- [Install](#-install)
-- [Usage](#-usage)
-- [JSON output](#-json-output)
-- [Live mode](#-live-mode)
-- [Benchmarks](#-benchmarks)
-- [How it works](#-how-it-works)
-- [Why is `--all` slower?](#-why-is---all-slower)
-- [Compatibility](#-compatibility)
-- [Troubleshooting](#-troubleshooting)
-- [Development](#-development)
-- [License](#-license)
+`batbar` is a lightweight alternative to GUI battery applets and shell-heavy status scripts. It enumerates `/sys/class/power_supply`, reads the kernel's battery attributes, and renders a clean, color-coded table with a charge bar, time estimate, battery health, and cycle count.
 
 ---
 
 ## ✨ Features
 
-- ⚡ **Fast by default** — ~1.2 ms warm run, ~2.2 MB peak RSS, 344 KB binary.
+- ⚡ **Fast by default** — ~1.2 ms warm run, ~2.2 MB peak RSS, ~344 KB binary.
 - 📊 **Visual charge bar** — green above 30%, yellow at 16–30%, red at 15% or below.
 - ⏱️ **Time estimate** — time to full or empty when the kernel exposes `power_now` or `current_now`.
 - 🩺 **Health & cycles** — full-charge capacity vs. design capacity, plus cycle count.
@@ -108,7 +113,7 @@ batbar --no-color      # plain text
 
 Example `--all` output:
 
-```
+```text
 🔋 BATTERY STATUS (Direct sysfs)
 ----------------------------------------------------------------------------
 BATTERY STATE        CHARGE                  LVL  ETA          HEALTH CYCLES
